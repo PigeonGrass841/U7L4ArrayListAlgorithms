@@ -130,7 +130,7 @@ public class ArrayListAlgorithms {
      *  DOES mutate (modify) elements in numList
      *  PRECONDITION: numList1.size() > 0
      *
-     *  @param numList1  arraylist of Integers
+     *  @param numList arraylist of Integers
      */
     public static void removeOdds(ArrayList<Integer> numList)
     {
@@ -319,6 +319,7 @@ public class ArrayListAlgorithms {
     public static ArrayList<Integer> modes(int[] numList)
     {
         int count = 0;
+        int modeCount = 0;
         ArrayList<Integer> modes = new ArrayList<Integer>();
         for (int i = 0; i < numList.length; i++)
         {
@@ -329,11 +330,12 @@ public class ArrayListAlgorithms {
                     count++;
                 }
             }
-            if (count > modes.get(0)) {
-                modes.set(0, numList[i]);
+            if (count > modeCount && count > 1) {
+                modes = new ArrayList(numList[i]);
+                modeCount = count;
             }
-            for (int k = 0; k < modes.size(); k++) {
-
+            if (count == modeCount) {
+                modes.add(numList[i]);
             }
         }
         return modes;
