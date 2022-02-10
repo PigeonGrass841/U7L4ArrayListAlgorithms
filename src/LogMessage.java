@@ -14,7 +14,7 @@ public class LogMessage
     public boolean containsWord(String keyword)
     {
         int index = description.indexOf(keyword);
-        while (description.indexOf(keyword) != -1)
+        while (index != -1)
         {
             if (description.equals(keyword))
             {
